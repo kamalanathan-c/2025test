@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jstyle.test2025">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+
+    <application
+        android:name=".Myapp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity
+            android:name=".activity.Bottomnavigation"
+            android:exported="false"
+            android:label="@string/title_activity_bottomnavigation" />
+        <activity
+            android:name=".activity.Splashscreen"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.DeviceScanActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.CsvActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.BasicActivity" />
+        <activity android:name=".activity.DeviceInfoActivity" />
+        <activity android:name=".activity.DetailDataActivity" />
+        <activity android:name=".activity.TemperatureHistoryActivity" />
+        <activity android:name=".activity.HeartRateInfoActivity" />
+        <activity android:name=".activity.TotalDataActivity" />
+        <activity android:name=".activity.AlarmListActivity" />
+        <activity android:name=".activity.HeartRateSetActivity" />
+        <activity android:name=".activity.ActivityAlarmSetActivity" />
+        <activity android:name=".activity.ActivityLanguageSwitching" />
+        <activity android:name=".activity.OtherAlarmActivity" />
+        <activity android:name=".activity.NotifyActivity" />
+        <activity android:name=".activity.SetGoalActivity" />
+        <activity android:name=".activity.ActivitySetActivity" />
+        <activity android:name=".activity.StepTestActivity" />
+        <activity android:name=".activity.HrvDataReadActivity" />
+        <activity android:name=".activity.AlarmSetActivity" />
+        <activity android:name=".activity.ExerciseHistoryDataActivity" />
+        <activity android:name=".activity.ActivityModeActivity" />
+        <activity android:name=".activity.EcgActivity" />
+        <activity
+            android:name=".activity.EcghistoryActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeer" />
+        <activity
+            android:name=".activity.PDFActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeer" />
+        <activity android:name=".activity.BloodOxygenActivity" />
+        <activity android:name=".activity.SocialDistanceActivity" />
+        <activity android:name=".activity.MusicActivity" />
+        <activity android:name=".activity.WeatherActivity" />
+        <activity android:name=".activity.ClockDialActivity" />
+        <activity android:name=".activity.SportModeActivity" /> <!-- <activity android:name="com.jstyle.test2025.activity.WorkOutReminderActivity" /> -->
+        <activity android:name=".activity.GpsActivity" />
+        <activity android:name=".activity.MacActivity" />
+        <activity android:name=".activity.EcginfoActivity" />
+        <activity android:name=".activity.EcgPPgStatusActivity" />
+        <activity android:name=".activity.EcgDataActivity" />
+        <activity android:name=".activity.Spo2SetActivity" />
+        <activity android:name=".activity.MeasurementActivity" />
+        <activity android:name=".activity.QRActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="@string/fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <service android:name=".ble.BleService" />
+    </application>
+
+</manifest>

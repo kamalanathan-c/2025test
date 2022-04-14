@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.jstyle.test2025.activity.DetailDataActivity">
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio_activity"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Activity" />
+
+        <RadioButton
+            android:layout_margin="8dp"
+            android:id="@+id/radio_Sleep"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Sleep" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:text="Read"
+        android:id="@+id/bt_readData"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:text="Delete"
+        android:id="@+id/bt_DeleteData"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/RecyclerView_detailData"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

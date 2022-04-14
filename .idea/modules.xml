@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2025test.iml" filepath="$PROJECT_DIR$/.idea/modules/2025test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/2025test.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/2025test.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/blesdk_2025/2025test.blesdk_2025.iml" filepath="$PROJECT_DIR$/.idea/modules/blesdk_2025/2025test.blesdk_2025.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hellochartslibrary/2025test.hellochartslibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/hellochartslibrary/2025test.hellochartslibrary.iml" />
+    </modules>
+  </component>
+</project>
