@@ -3,9 +3,9 @@ package com.jstyle.test2025.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SwitchCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -113,7 +113,7 @@ public class MainActivity extends BaseActivity implements MainAdapter.onItemClic
                     SwitchCompatTemp.setEnabled(true);
                     dissMissDialog();
                 } else if (action.equals(BleService.ACTION_GATT_DISCONNECTED)) {
-                    mainAdapter.setEnable(true);
+                    mainAdapter.setEnable(false);
                     btConnect.setEnabled(true);
                     buttonStartreal.setEnabled(false);
                     SwitchCompatTemp.setEnabled(false);

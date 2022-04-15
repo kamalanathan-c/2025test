@@ -18,7 +18,7 @@
                 android:background="@android:color/transparent"
                 android:text="Open gps" />
 
-            <android.support.v7.widget.SwitchCompat
+            <androidx.appcompat.widget.SwitchCompat
                 android:layout_toEndOf="@+id/tslp"
                 android:id="@+id/Opengps"
                 android:gravity="center_vertical"
@@ -34,7 +34,7 @@
 
 
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/RecyclerView_gps"
         android:layout_height="wrap_content"/>

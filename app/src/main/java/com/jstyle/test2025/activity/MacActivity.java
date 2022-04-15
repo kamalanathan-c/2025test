@@ -1,13 +1,11 @@
 package com.jstyle.test2025.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.SwitchCompat;
+import androidx.appcompat.widget.AppCompatEditText;
+
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.TextView;
 
 import com.jstyle.blesdk2025.Util.BleSDK;
 import com.jstyle.blesdk2025.constant.BleConst;

@@ -2,9 +2,9 @@ package com.jstyle.test2025.activity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.jstyle.blesdk2025.Util.BleSDK;
@@ -17,7 +17,6 @@ import com.jstyle.test2025.ble.BleManager;
 import com.jstyle.test2025.ble.BleService;
 
 
-import java.util.List;
 import java.util.Map;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;

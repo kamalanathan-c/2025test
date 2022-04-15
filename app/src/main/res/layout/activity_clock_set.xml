@@ -12,7 +12,7 @@
         android:id="@+id/bt_clock_save"
         android:text="Save"
         android:layout_height="wrap_content" />
-    <android.support.v7.widget.SwitchCompat
+    <androidx.appcompat.widget.SwitchCompat
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:id="@+id/SwitchCompat"
@@ -52,9 +52,9 @@
             android:text="Drink" />
     </RadioGroup>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/RecyclerView_alarm_set"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

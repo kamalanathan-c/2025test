@@ -1,9 +1,9 @@
 package com.jstyle.test2025.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -44,7 +44,7 @@ public class AlarmSetActivity extends BaseActivity {
     @BindArray(R.array.weekarray)
     String[] weekArray;
     @BindView(R.id.SwitchCompat)
-    android.support.v7.widget.SwitchCompat SwitchCompat;
+    androidx.appcompat.widget.SwitchCompat SwitchCompat;
     private Clock clock;
     private ClockWeekAdapter clockWeekAdapter;
     private int clockId;

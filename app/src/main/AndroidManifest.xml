@@ -37,22 +37,25 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
-            android:name=".activity.Bottomnavigation"
-            android:exported="false"
-            android:label="@string/title_activity_bottomnavigation" />
-        <activity
-            android:name=".activity.Splashscreen"
+            android:name=".activity.ui.BottomNavigBaseActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:label="@string/title_activity_bottom_navig_base" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activity.Splashscreen"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
         <activity
             android:name=".activity.DeviceScanActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.CsvActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.BasicActivity" />
@@ -99,7 +102,7 @@
         <activity android:name=".activity.QRActivity" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="@string/fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

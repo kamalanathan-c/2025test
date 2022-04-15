@@ -12,10 +12,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
-import android.text.TextUtils;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -25,17 +25,13 @@ import android.webkit.WebView;
 
 import com.demon.js_pdf.WebViewHelper;
 import com.jstyle.blesdk2025.Util.PDFCreate;
-import com.jstyle.blesdk2025.Util.ResolveUtil;
 import com.jstyle.blesdk2025.model.UserInfo;
 import com.jstyle.test2025.BuildConfig;
 import com.jstyle.test2025.Myapp;
 import com.jstyle.test2025.R;
 import com.jstyle.test2025.Util.SchedulersTransformer;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 

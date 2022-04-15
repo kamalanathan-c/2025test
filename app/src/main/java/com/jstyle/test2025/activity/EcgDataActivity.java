@@ -1,20 +1,18 @@
 package com.jstyle.test2025.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.jstyle.blesdk2025.Util.BleSDK;
 import com.jstyle.blesdk2025.constant.BleConst;
 import com.jstyle.blesdk2025.constant.DeviceKey;
 import com.jstyle.test2025.R;
 import com.jstyle.test2025.adapter.ECGDataAdapter;
-import com.jstyle.test2025.adapter.GpsDataAdapter;
 import com.jstyle.test2025.daomananger.EcgDataDaoManager;
 import com.jstyle.test2025.model.EcgHistoryData;
 

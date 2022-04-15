@@ -5,7 +5,7 @@
     android:orientation="vertical"
     tools:context="com.jstyle.test2025.activity.NotifyActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView_notify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

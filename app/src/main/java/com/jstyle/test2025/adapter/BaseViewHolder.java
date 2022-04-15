@@ -1,6 +1,6 @@
 package com.jstyle.test2025.adapter;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 /**

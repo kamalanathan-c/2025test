@@ -6,7 +6,7 @@ import lecho.lib.hellocharts.gesture.PreviewChartTouchHandler;
 import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.renderer.PreviewLineChartRenderer;
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 

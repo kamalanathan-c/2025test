@@ -15,7 +15,7 @@
             android:background="@android:color/transparent"
             android:text="Get ecg" />
 
-        <android.support.v7.widget.SwitchCompat
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/_switchCompat"
             android:layout_marginStart="30dp"
             android:layout_width="wrap_content"

@@ -5,8 +5,7 @@ import lecho.lib.hellocharts.model.Viewport;
 import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.support.v4.widget.ScrollerCompat;
-import android.util.Log;
+import androidx.core.widget.ScrollerCompat;
 
 /**
  * Encapsulates scrolling functionality.

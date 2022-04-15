@@ -8,7 +8,7 @@ import lecho.lib.hellocharts.model.SelectedValue;
 import lecho.lib.hellocharts.provider.LineChartDataProvider;
 import lecho.lib.hellocharts.renderer.LineChartRenderer;
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 
