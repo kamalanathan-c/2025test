@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/bottom_nav_tab.xml" value="0.1" />
+        <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/bottomnavselector.xml" value="0.1" />
+        <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/check_remind_osd.xml" value="0.1" />
+        <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/ic_heart_hrv.xml" value="0.2265" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/activity_basic.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/activity_bottom_navig_base.xml" value="0.1" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/activity_bottomnavigation.xml" value="0.25416666666666665" />

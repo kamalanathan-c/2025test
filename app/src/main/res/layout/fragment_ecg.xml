@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#181c2a"
+    android:background="#003e5f"
     android:orientation="vertical"
     tools:context="com.jstyle.gps.fragment.EcgFragment">
 
@@ -43,7 +43,7 @@
 <ImageView
     android:layout_width="100dp"
     android:layout_height="100dp"
-    android:src="@drawable/ecg_hrv"/>
+    android:src="@drawable/heart_hrv"/>
         <TextView
             android:id="@+id/textView_ecg_hrv"
             android:layout_width="70dp"
