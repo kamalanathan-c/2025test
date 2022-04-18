@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.jstyle.test2025.activity.ui.ui.notifications.NotificationsFragment"
+        android:name="com.jstyle.test2025.activity.ui.ui.health.HealthFragment"
         android:label="@string/title_health"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_health" />
     <fragment
         android:id="@+id/navigation_me"
         android:name="com.jstyle.test2025.activity.ui.ui.Me.MeFragment"

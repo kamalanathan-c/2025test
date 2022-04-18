@@ -13,7 +13,7 @@
         android:layout_marginEnd="0dp"
         app:itemIconTint="@drawable/bottom_nav_tab"
         app:itemTextColor="@drawable/bottom_nav_tab"
-        android:background="#ffffff"
+        android:background="@color/colorblack"
         app:elevation="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

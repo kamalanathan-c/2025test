@@ -18,14 +18,17 @@ public class EcgFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        EcgViewModel dashboardViewModel =
+        EcgViewModel ecgViewModel =
                 new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(EcgViewModel.class);
 
         binding = FragmentEcgBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-       // final TextView textView = binding.textViewEcgBp;
-       // dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView_ecg_hr = binding.textViewEcgHr;
+        final TextView textView_ecg_hrv = binding.textViewEcgHrv;
+        textView_ecg_hr.setText("89");
+        textView_ecg_hrv.setText("110");
+        //ecgViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
