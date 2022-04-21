@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.jstyle.blesdk2025.Util.BleSDK;
 import com.jstyle.blesdk2025.constant.DeviceKey;
 import com.jstyle.test2025.R;
 
@@ -131,6 +132,7 @@ public class BottomNavigBaseActivity extends BaseActivity {
                 } else if (action.equals(BleService.ACTION_GATT_DISCONNECTED)) {
                     dissMissDialog();
                 }
+                sendValue(BleSDK.RealTimeStep(true,true));
             }
         });
     }
