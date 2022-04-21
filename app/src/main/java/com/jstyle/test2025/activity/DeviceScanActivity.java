@@ -44,6 +44,7 @@ import com.jstyle.blesdk2025.model.ExtendedBluetoothDevice;
 import com.jstyle.test2025.R;
 import com.jstyle.test2025.Util.PermissionsUtil;
 import com.jstyle.test2025.Util.ResolveData;
+import com.jstyle.test2025.activity.ui.BottomNavigBaseActivity;
 
 
 import java.io.File;
@@ -206,7 +207,7 @@ public class DeviceScanActivity extends AppCompatActivity implements Permissions
                 if (mScanning) {
                     scanLeDevice(false);
                 }
-                final Intent intent = new Intent(DeviceScanActivity.this, MainActivity.class);
+                final Intent intent = new Intent(DeviceScanActivity.this, BottomNavigBaseActivity.class);
                 intent.putExtra("address", device.getAddress());
                 intent.putExtra("name", name);
                 startActivity(intent);
