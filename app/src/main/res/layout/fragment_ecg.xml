@@ -62,12 +62,10 @@
        android:layout_height="wrap_content"
        android:orientation="vertical">
 
-    <com.jstyle.test2025.Util.EcgGraphicView
-        android:id="@+id/EcgGraphicView"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:visibility="invisible"
-        tools:layout_editor_absoluteY="163dp" />
+       <lecho.lib.hellocharts.view.LineChartView
+           android:id="@+id/lineChartView_ecg"
+           android:layout_width="wrap_content"
+           android:layout_height="200dp" />
 
     <Button
         android:id="@+id/bt_startEcg"

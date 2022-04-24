@@ -113,7 +113,7 @@ public class MainActivity extends BaseActivity implements MainAdapter.onItemClic
                     SwitchCompatTemp.setEnabled(true);
                     dissMissDialog();
                 } else if (action.equals(BleService.ACTION_GATT_DISCONNECTED)) {
-                    mainAdapter.setEnable(false);
+                    mainAdapter.setEnable(true);
                     btConnect.setEnabled(true);
                     buttonStartreal.setEnabled(false);
                     SwitchCompatTemp.setEnabled(false);

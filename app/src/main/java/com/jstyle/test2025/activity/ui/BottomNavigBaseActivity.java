@@ -17,6 +17,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.jstyle.blesdk2025.Util.BleSDK;
+import com.jstyle.blesdk2025.Util.ResolveUtil;
+import com.jstyle.blesdk2025.constant.DeviceConst;
 import com.jstyle.blesdk2025.constant.DeviceKey;
 import com.jstyle.test2025.R;
 
@@ -30,6 +32,8 @@ import com.jstyle.test2025.activity.ui.ui.health.HealthFragment;
 import com.jstyle.test2025.ble.BleManager;
 import com.jstyle.test2025.ble.BleService;
 import com.jstyle.test2025.databinding.ActivityBottomNavigBaseBinding;
+import com.neurosky.AlgoSdk.NskAlgoDataType;
+import com.neurosky.AlgoSdk.NskAlgoSdk;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -48,6 +52,8 @@ public class BottomNavigBaseActivity extends BaseActivity {
     private Disposable subscription;
     Map<String, String> maps;
     BottomNavigationView navView;
+    int raw_data_index = 0;
+    private NskAlgoSdk nskAlgoSdk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +61,8 @@ public class BottomNavigBaseActivity extends BaseActivity {
         connectDevice();
         binding = ActivityBottomNavigBaseBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        nskAlgoSdk = new NskAlgoSdk();
+        nskAlgoSdk.NskAlgoUninit();
        navView  = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -135,6 +142,31 @@ public class BottomNavigBaseActivity extends BaseActivity {
                 sendValue(BleSDK.RealTimeStep(true,true));
             }
         });
+    }
+
+    @Override
+    public void dataCallback(byte[] value) {
+        switch (value[0]) {
+            case DeviceConst.CMD_ECGDATA:
+                if (raw_data_index == 0 || raw_data_index % 200 == 0) {
+                    // send the good signal for every half second
+                    short pqValue[] = {(short) 200};
+                    nskAlgoSdk.NskAlgoDataStream(NskAlgoDataType.NSK_ALGO_DATA_TYPE_ECG_PQ, pqValue, 1);
+                }
+                for (int i = 0; i < value.length / 2 - 1; i++) {
+                    int ecgValueAction = ResolveUtil.getValue(value[i * 2 + 1], 1) + ResolveUtil.getValue(value[i * 2 + 2], 0);
+                    if (ecgValueAction >= 32768) ecgValueAction = ecgValueAction - 65536;
+                    raw_data_index++;
+                    short[] ecgData = new short[]{(short) -ecgValueAction};
+                    nskAlgoSdk.NskAlgoDataStream(NskAlgoDataType.NSK_ALGO_DATA_TYPE_ECG, ecgData, 1);//this
+                }
+                break;
+            case  DeviceConst.CMD_PPGGDATA:
+               break;
+            case DeviceConst.CMD_Get_DeviceInfo:
+                break;
+
+        }
     }
     @Override
     public void dataCallback(Map<String, Object> map) {
