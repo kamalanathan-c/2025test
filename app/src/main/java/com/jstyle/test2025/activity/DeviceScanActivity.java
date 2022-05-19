@@ -26,7 +26,10 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -207,7 +210,7 @@ public class DeviceScanActivity extends AppCompatActivity implements Permissions
                 if (mScanning) {
                     scanLeDevice(false);
                 }
-                final Intent intent = new Intent(DeviceScanActivity.this, BottomNavigBaseActivity.class);
+                final Intent intent = new Intent(DeviceScanActivity.this, MainActivity.class);
                 intent.putExtra("address", device.getAddress());
                 intent.putExtra("name", name);
                 startActivity(intent);
@@ -261,9 +264,13 @@ public class DeviceScanActivity extends AppCompatActivity implements Permissions
                     invalidateOptionsMenu();
                 }
             }, 12000);
-            mBluetoothAdapter.startLeScan(mLeScanCallback);
-            //	mBluetoothAdapter.startLeScan(serviceUuids, mLeScanCallback);
-            mScanning = true;
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+                mBluetoothAdapter.startLeScan(mLeScanCallback);
+                //	mBluetoothAdapter.startLeScan(serviceUuids, mLeScanCallback);
+                mScanning = true;
+                return;
+            }
+
         } else {
             if (!mScanning) return;
             mBluetoothAdapter.stopLeScan(mLeScanCallback);

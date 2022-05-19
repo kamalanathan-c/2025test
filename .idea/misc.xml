@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DEMO/StudioProjects/2025test/app/src/main/res/layout/activity_bottom_navig_base.xml" value="0.1" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/bottom_nav_tab.xml" value="0.1" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/bottomnavselector.xml" value="0.1" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/check_remind_osd.xml" value="0.1" />
@@ -25,7 +26,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
