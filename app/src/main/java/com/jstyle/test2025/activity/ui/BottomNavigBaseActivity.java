@@ -172,8 +172,15 @@ public class BottomNavigBaseActivity extends BaseActivity {
     public void dataCallback(Map<String, Object> map) {
         super.dataCallback(map);
          maps = getData(map);
-        String heart = maps.get(DeviceKey.HeartRate);
-        Log.e("info",map.toString());
+         try{
+             String heart = maps.get(DeviceKey.HeartRate);
+             Log.e("info",map.toString());
+         }catch (Exception e)
+         {
+             e.printStackTrace();
+
+         }
+
 
     }
 }

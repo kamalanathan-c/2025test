@@ -341,11 +341,11 @@ public class EcgActivity extends BaseActivity {
                 profiles = nskAlgoSdk.NskAlgoProfiles();
                 // setup the ECG config
                 // assert(nskAlgoSdk.NskAlgoSetECGConfigAfib((float)3.5) == true);
-                assert (nskAlgoSdk.NskAlgoSetECGConfigStress(30, 30) == true);
+              /*  assert (nskAlgoSdk.NskAlgoSetECGConfigStress(30, 30) == true);
                 assert (nskAlgoSdk.NskAlgoSetECGConfigHeartage(30) == true);
                 assert (nskAlgoSdk.NskAlgoSetECGConfigHRV(30) == true);
                 assert (nskAlgoSdk.NskAlgoSetECGConfigHRVTD(30, 30) == true);
-                assert (nskAlgoSdk.NskAlgoSetECGConfigHRVFD(30, 30) == true);
+                assert (nskAlgoSdk.NskAlgoSetECGConfigHRVFD(30, 30) == true);*/
 
                 // nskAlgoSdk.setSignalQualityWatchDog((short)20, (short)5);
                 // retrieve the baseline data

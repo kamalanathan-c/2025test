@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DEMO/StudioProjects/2025test/app/src/main/res/drawable-anydpi/bottom_nav_home.xml" value="0.196" />
         <entry key="..\:/Users/DEMO/StudioProjects/2025test/app/src/main/res/layout/activity_bottom_navig_base.xml" value="0.1" />
+        <entry key="..\:/Users/DEMO/StudioProjects/2025test/app/src/main/res/layout/fragment_ecg.xml" value="0.1" />
+        <entry key="..\:/Users/DEMO/StudioProjects/2025test/app/src/main/res/layout/fragment_home.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/DEMO/StudioProjects/2025test/app/src/main/res/menu/main.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/bottom_nav_tab.xml" value="0.1" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/bottomnavselector.xml" value="0.1" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/check_remind_osd.xml" value="0.1" />

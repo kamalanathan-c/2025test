@@ -108,15 +108,15 @@ public class MainActivity extends BaseActivity implements MainAdapter.onItemClic
                 String action = bleData.getAction();
                 if (action.equals(BleService.ACTION_GATT_onDescriptorWrite)) {
                     mainAdapter.setEnable(true);
-                    btConnect.setEnabled(false);
+                    btConnect.setEnabled(true);
                     buttonStartreal.setEnabled(true);
                     SwitchCompatTemp.setEnabled(true);
                     dissMissDialog();
                 } else if (action.equals(BleService.ACTION_GATT_DISCONNECTED)) {
                     mainAdapter.setEnable(true);
                     btConnect.setEnabled(true);
-                    buttonStartreal.setEnabled(false);
-                    SwitchCompatTemp.setEnabled(false);
+                    buttonStartreal.setEnabled(true);
+                    SwitchCompatTemp.setEnabled(true);
                     isStartReal = false;
                     dissMissDialog();
                 }

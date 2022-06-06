@@ -1,5 +1,6 @@
 package com.jstyle.test2025.activity.ui.ui.ECG;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Color;
@@ -69,15 +70,16 @@ public class EcgFragment extends Fragment {
         maps = (Map<String, String>) getArguments().getSerializable("map");
         final TextView textView_ecg_hr = binding.textViewEcgHr;
         final TextView textView_ecg_hrv = binding.textViewEcgHrv;
-      /*  textView_ecg_hr.setText("1"+maps.get(DeviceKey.HeartRate));
-        textView_ecg_hrv.setText("2"+maps.get(DeviceKey.hrvValue));*/
-        textView_ecg_hr.setText("1");
-        textView_ecg_hrv.setText("2");
+       textView_ecg_hr.setText("+"+maps.get(DeviceKey.HeartRate));
+        textView_ecg_hrv.setText("+"+maps.get(DeviceKey.hrvValue));
+
        Button bt_startEcg = binding.btStartEcg;
         bt_startEcg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initializeEcg();
+                //initializeEcg();
+                Intent i = new Intent(getContext(),EcgActivity.class);
+                startActivity(i);
             }
         });
         //ecgViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);

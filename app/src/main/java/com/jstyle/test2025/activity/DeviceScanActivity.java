@@ -210,7 +210,8 @@ public class DeviceScanActivity extends AppCompatActivity implements Permissions
                 if (mScanning) {
                     scanLeDevice(false);
                 }
-                final Intent intent = new Intent(DeviceScanActivity.this, BottomNavigBaseActivity.class);
+               // final Intent intent = new Intent(DeviceScanActivity.this, BottomNavigBaseActivity.class);
+                final Intent intent = new Intent(DeviceScanActivity.this, MainActivity.class);
                 intent.putExtra("address", device.getAddress());
                 intent.putExtra("name", name);
                 startActivity(intent);
@@ -225,13 +226,19 @@ public class DeviceScanActivity extends AppCompatActivity implements Permissions
                     1
             );
         }
-        Set<BluetoothDevice> devices = mBluetoothAdapter.getBondedDevices();
+        try{
+            Set<BluetoothDevice> devices = mBluetoothAdapter.getBondedDevices();
+
+
         List<ExtendedBluetoothDevice> list = new ArrayList<>();
         for (BluetoothDevice device : devices) {
             list.add(new ExtendedBluetoothDevice(device));
         }
         mLeDeviceListAdapter.addBondDevice(list);
         scanLeDevice(true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     private static final String[] ANDROID_12_BLE_PERMISSIONS = new String[]{
             Manifest.permission.BLUETOOTH_SCAN,
