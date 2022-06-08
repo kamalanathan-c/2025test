@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#003e5f"
     tools:context="com.jstyle.test2025.activity.NotifyActivity">
 
     <TextView
@@ -10,7 +11,8 @@
         android:textColor="@android:color/black"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
 
     <RadioGroup
@@ -19,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:checkedButton="@+id/radio_1"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:visibility="gone">
         <RadioButton
             android:id="@+id/radio_1"
             android:layout_width="wrap_content"
@@ -42,7 +45,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
         <Button
             android:id="@+id/open"
             android:layout_weight="1"
@@ -57,10 +61,38 @@
             android:layout_height="wrap_content"
             android:text="Close ECG + PPG" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/heart_hrv"/>
+            <TextView
+                android:id="@+id/hrvValue"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="--"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="69dp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
         <TextView
             android:id="@+id/heartValue"
             android:text="heartValue"
@@ -70,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
-            android:id="@+id/hrvValue"
+            android:id="@+id/hrvValue1"
             android:text="hrvValue"
             android:layout_weight="1"
             android:gravity="center"

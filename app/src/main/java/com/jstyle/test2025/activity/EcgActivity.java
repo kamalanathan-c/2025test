@@ -145,7 +145,7 @@ public class EcgActivity extends BaseActivity {
         nskAlgoSdk.NskAlgoStart(false);
        ChartDataUtil.initDataChartView(lineChartView_ecg, 0, 8000, 1536, -8000);
         lineChartView_ecg.setLineChartData(ChartDataUtil.getEcgLineChartData(EcgActivity.this, queueEcg, Color.RED, 4, index));
-
+        sendValue(BleSDK.enableEcgPPg(4,MeasureTimes));
 
         Observable.interval(100, TimeUnit.MILLISECONDS).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Long>() {
             @Override
@@ -371,16 +371,6 @@ public class EcgActivity extends BaseActivity {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
