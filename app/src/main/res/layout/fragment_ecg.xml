@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
+        android:visibility="gone"
         android:layout_weight="1">
 <ImageView
     android:layout_width="100dp"
@@ -74,7 +75,7 @@
         android:background="@android:color/transparent"
         android:drawableTop="@drawable/start_ecg"
         android:drawablePadding="16dp"
-        android:text="Start Measuring"
+        android:text="Start ECG Measuring"
         android:textColor="@android:color/white"
         tools:layout_editor_absoluteX="155dp"
         tools:layout_editor_absoluteY="389dp" />
