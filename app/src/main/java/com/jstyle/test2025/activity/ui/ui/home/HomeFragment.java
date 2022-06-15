@@ -31,18 +31,7 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-//        maps = (Map<String, String>) getArguments().getSerializable("map");
-        Button clickme = binding.clickme;
-        clickme.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(), BottomNavigBaseActivity.class);
-                startActivity(i);
-            }
-        });
+       // maps = (Map<String, String>) getArguments().getSerializable("map");
         return root;
     }
 

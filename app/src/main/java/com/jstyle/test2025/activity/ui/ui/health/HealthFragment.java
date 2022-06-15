@@ -24,8 +24,6 @@ public class HealthFragment extends Fragment {
         binding = FragmentHealthBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-         TextView textHealth = binding.textHealth;
-        textHealth.setText("This is Health fragment");
       //  healthViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

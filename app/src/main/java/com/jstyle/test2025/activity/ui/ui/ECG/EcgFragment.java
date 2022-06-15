@@ -70,9 +70,10 @@ public class EcgFragment extends Fragment {
         maps = (Map<String, String>) getArguments().getSerializable("map");
         final TextView textView_ecg_hr = binding.textViewEcgHr;
         final TextView textView_ecg_hrv = binding.textViewEcgHrv;
-       textView_ecg_hr.setText("+"+maps.get(DeviceKey.HeartRate));
-        textView_ecg_hrv.setText("+"+maps.get(DeviceKey.hrvValue));
-
+       /* textView_ecg_hr.setText("+"+maps.get(DeviceKey.HeartRate));
+        textView_ecg_hrv.setText("+"+maps.get(DeviceKey.hrvValue));*/
+        textView_ecg_hr.setText("+"+1);
+        textView_ecg_hrv.setText("+"+2);
        Button bt_startEcg = binding.btStartEcg;
         bt_startEcg.setOnClickListener(new View.OnClickListener() {
             @Override
