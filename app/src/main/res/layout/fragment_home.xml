@@ -88,12 +88,13 @@
                                 android:textColor="@color/colorwhite" />
 
                             <TextView
-                                android:id="@+id/txt+percent"
+                                android:id="@+id/txt_percent"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="20dp"
                                 android:gravity="center"
                                 android:text="0%"
+                                android:layout_marginBottom="20dp"
                                 android:textColor="@color/colorwhite" />
 
                             <LinearLayout
@@ -105,7 +106,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:padding="10dp">
+                                    android:padding="10dp"
+                                    android:background="@drawable/border_line">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -143,7 +145,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:padding="10dp">
+                                    android:padding="10dp"
+                                    android:background="@drawable/border_line">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -179,7 +182,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:padding="10dp">
+                                    android:padding="10dp"
+                                    android:background="@drawable/border_line">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -215,13 +219,15 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="15dp">
 
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:padding="10dp">
+                                    android:padding="10dp"
+                                    android:background="@drawable/border_line">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -257,7 +263,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:padding="10dp">
+                                    android:padding="10dp"
+                                    android:background="@drawable/border_line">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
