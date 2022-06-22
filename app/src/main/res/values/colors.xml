@@ -9,5 +9,6 @@
     <color name="green">#85d11e</color>
     <color name="blue">#7bced1</color>
     <color name="app_bg">#003e5f</color>
+    <color name="card_bg">#002d46</color>
 
 </resources>

@@ -48,7 +48,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\vinot\Downloads\stressed-person.png" />
+                                                <entry key="imagePath" value="C:\Users\vinot\Downloads\excercise.png" />
                                                 <entry key="opacityPercent" value="80" />
                                               </map>
                                             </option>
@@ -82,8 +82,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\vinot\Downloads\stressed-person.png" />
-                                      <entry key="outputName" value="img_health_stress" />
+                                      <entry key="imageAsset" value="C:\Users\vinot\Downloads\excercise.png" />
+                                      <entry key="outputName" value="img_home_exercise" />
                                       <entry key="theme" value="CUSTOM" />
                                       <entry key="themeColor" value="ffffff" />
                                     </map>

@@ -8,6 +8,7 @@
         <entry key="..\:/Users/DEMO/StudioProjects/2025test/app/src/main/res/layout/fragment_ecg.xml" value="0.1" />
         <entry key="..\:/Users/DEMO/StudioProjects/2025test/app/src/main/res/layout/fragment_home.xml" value="0.17300724637681159" />
         <entry key="..\:/Users/DEMO/StudioProjects/2025test/app/src/main/res/menu/main.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable-anydpi/img_signal.xml" value="0.255" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/bottom_nav_tab.xml" value="0.1" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/bottomnavselector.xml" value="0.1" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/drawable/check_remind_osd.xml" value="0.1" />
@@ -22,7 +23,7 @@
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/fragment_ecg.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/fragment_health.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/fragment_home.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/fragment_me.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/fragment_notifications.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vinot/Desktop/watch/Android/2025/2025test/app/src/main/res/layout/health_recycler_view.xml" value="0.16111111111111112" />
