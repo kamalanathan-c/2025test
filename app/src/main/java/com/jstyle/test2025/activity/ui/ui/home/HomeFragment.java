@@ -22,7 +22,7 @@ import java.util.Map;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    Map<String, String> maps;
+    Map<String, String> map;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,8 +30,17 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+
         View root = binding.getRoot();
-       // maps = (Map<String, String>) getArguments().getSerializable("map");
+        map = (Map<String, String>) getArguments().getSerializable("map");
+        String time=map.get(DeviceKey.ExerciseMinutes);
+        String totalStep=map.get(DeviceKey.Step);
+        String distance=map.get(DeviceKey.Distance);
+        String cal=map.get(DeviceKey.Calories);
+        String goal=map.get(DeviceKey.Goal);
+        String date=map.get(DeviceKey.Date);
+        TextView txt_stepcount = binding.txtStepcount;
+        txt_stepcount.setText(totalStep);
         return root;
     }
 
