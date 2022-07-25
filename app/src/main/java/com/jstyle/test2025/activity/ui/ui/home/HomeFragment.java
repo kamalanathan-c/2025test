@@ -32,15 +32,34 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         View root = binding.getRoot();
-        map = (Map<String, String>) getArguments().getSerializable("map");
-        String time=map.get(DeviceKey.ExerciseMinutes);
-        String totalStep=map.get(DeviceKey.Step);
-        String distance=map.get(DeviceKey.Distance);
-        String cal=map.get(DeviceKey.Calories);
-        String goal=map.get(DeviceKey.Goal);
-        String date=map.get(DeviceKey.Date);
-        TextView txt_stepcount = binding.txtStepcount;
-        txt_stepcount.setText(totalStep);
+        try{
+            map = (Map<String, String>) getArguments().getSerializable("map");
+            String time=map.get(DeviceKey.ExerciseMinutes);
+            String totalStep=map.get(DeviceKey.Step);
+            String distance=map.get(DeviceKey.Distance);
+            String cal=map.get(DeviceKey.Calories);
+            String ActiveMinutes=map.get(DeviceKey.ActiveMinutes);
+            String highBP=map.get(DeviceKey.highBP);
+
+            String goal=map.get(DeviceKey.Goal);
+            String date=map.get(DeviceKey.Date);
+            TextView txt_stepcount = binding.txtStepcount;
+            txt_stepcount.setText(totalStep);
+            TextView txt_cal = binding.txtCal;
+            txt_cal.setText(cal);
+            TextView txt_km = binding.txtKm;
+            txt_km.setText(distance);
+            TextView txtExercmin = binding.txtExercmin;
+            txtExercmin.setText(time);
+            TextView txtBpm = binding.txtBpm;
+            txtBpm.setText(highBP);
+            TextView txtActiveMin = binding.txtActiveMin;
+            txtActiveMin.setText(ActiveMinutes);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
         return root;
     }
 

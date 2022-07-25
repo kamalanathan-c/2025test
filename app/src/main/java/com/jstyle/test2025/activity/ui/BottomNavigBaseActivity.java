@@ -18,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.jstyle.blesdk2025.Util.BleSDK;
 import com.jstyle.blesdk2025.Util.ResolveUtil;
+import com.jstyle.blesdk2025.constant.BleConst;
 import com.jstyle.blesdk2025.constant.DeviceConst;
 import com.jstyle.blesdk2025.constant.DeviceKey;
 import com.jstyle.test2025.R;
@@ -54,6 +55,8 @@ public class BottomNavigBaseActivity extends BaseActivity {
     BottomNavigationView navView;
     int raw_data_index = 0;
     private NskAlgoSdk nskAlgoSdk;
+    boolean isStartReal;
+    Fragment selectedFragment = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,16 +75,18 @@ public class BottomNavigBaseActivity extends BaseActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_bottom_navig_base);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+      //  navView.setOnItemSelectedListener(navListener);
+        sendValue(BleSDK.RealTimeStep(true,true));
 
-        navView.setOnItemSelectedListener(navListener);
     }
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    /*private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             // By using switch we can easily get
             // the selected fragment
             // by using there id.
-            Fragment selectedFragment = null;
+           // Fragment selectedFragment = null;
+           // sendValue(BleSDK.RealTimeStep(true,true));
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     selectedFragment = new HomeFragment();
@@ -107,7 +112,7 @@ public class BottomNavigBaseActivity extends BaseActivity {
                     .commit();
             return true;
         }
-    };
+    };*/
     private void connectDevice() {
         address = getIntent().getStringExtra("address");
         if (TextUtils.isEmpty(address)) {
@@ -144,43 +149,47 @@ public class BottomNavigBaseActivity extends BaseActivity {
         });
     }
 
-    @Override
-    public void dataCallback(byte[] value) {
-        switch (value[0]) {
-            case DeviceConst.CMD_ECGDATA:
-                if (raw_data_index == 0 || raw_data_index % 200 == 0) {
-                    // send the good signal for every half second
-                    short pqValue[] = {(short) 200};
-                    nskAlgoSdk.NskAlgoDataStream(NskAlgoDataType.NSK_ALGO_DATA_TYPE_ECG_PQ, pqValue, 1);
-                }
-                for (int i = 0; i < value.length / 2 - 1; i++) {
-                    int ecgValueAction = ResolveUtil.getValue(value[i * 2 + 1], 1) + ResolveUtil.getValue(value[i * 2 + 2], 0);
-                    if (ecgValueAction >= 32768) ecgValueAction = ecgValueAction - 65536;
-                    raw_data_index++;
-                    short[] ecgData = new short[]{(short) -ecgValueAction};
-                    nskAlgoSdk.NskAlgoDataStream(NskAlgoDataType.NSK_ALGO_DATA_TYPE_ECG, ecgData, 1);//this
-                }
-                break;
-            case  DeviceConst.CMD_PPGGDATA:
-               break;
-            case DeviceConst.CMD_Get_DeviceInfo:
-                break;
 
-        }
-    }
+
     @Override
     public void dataCallback(Map<String, Object> map) {
         super.dataCallback(map);
-         maps = getData(map);
-         try{
-             String heart = maps.get(DeviceKey.HeartRate);
-             Log.e("info",map.toString());
-         }catch (Exception e)
-         {
-             e.printStackTrace();
+        String dataType = getDataType(map);
+        Log.e("info",map.toString());
+        switch (dataType) {
+            case BleConst.ReadSerialNumber:
+                showDialogInfo(map.toString());
+                break;
+            case BleConst.RealTimeStep:
+              maps = getData(map);
 
-         }
-
-
+                selectedFragment = new HomeFragment();
+                Bundle b= new Bundle();
+                b.putSerializable("map", (Serializable) maps);
+                selectedFragment.setArguments(b);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_activity_bottom_navig_base, selectedFragment)
+                        .commit();
+                break;
+            case BleConst.DeviceSendDataToAPP:
+                //showDialogInfo(BleConst.DeviceSendDataToAPP);
+                break;
+            case BleConst.FindMobilePhoneMode:
+                //showDialogInfo(BleConst.FindMobilePhoneMode);
+                break;
+            case BleConst.RejectTelMode:
+                //showDialogInfo(BleConst.RejectTelMode);
+                break;
+            case BleConst.TelMode:
+                //showDialogInfo(BleConst.TelMode);
+                break;
+            case BleConst.BackHomeView:
+                showToast(map.toString());
+                break;
+            case BleConst.Sos:
+                showToast(map.toString());
+                break;
+        }
     }
 }

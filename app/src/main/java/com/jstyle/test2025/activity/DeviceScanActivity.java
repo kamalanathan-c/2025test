@@ -210,8 +210,8 @@ public class DeviceScanActivity extends AppCompatActivity implements Permissions
                 if (mScanning) {
                     scanLeDevice(false);
                 }
-               // final Intent intent = new Intent(DeviceScanActivity.this, BottomNavigBaseActivity.class);
-                final Intent intent = new Intent(DeviceScanActivity.this, MainActivity.class);
+                final Intent intent = new Intent(DeviceScanActivity.this, BottomNavigBaseActivity.class);
+              //  final Intent intent = new Intent(DeviceScanActivity.this, MainActivity.class);
                 intent.putExtra("address", device.getAddress());
                 intent.putExtra("name", name);
                 startActivity(intent);
