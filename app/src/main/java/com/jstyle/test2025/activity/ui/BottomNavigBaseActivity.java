@@ -57,6 +57,7 @@ public class BottomNavigBaseActivity extends BaseActivity {
     private NskAlgoSdk nskAlgoSdk;
     boolean isStartReal;
     Fragment selectedFragment = null;
+    private boolean ishomeloaded = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,12 +75,12 @@ public class BottomNavigBaseActivity extends BaseActivity {
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_bottom_navig_base);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
-      //  navView.setOnItemSelectedListener(navListener);
+       // NavigationUI.setupWithNavController(binding.navView, navController);
+        navView.setOnItemSelectedListener(navListener);
         sendValue(BleSDK.RealTimeStep(true,true));
 
     }
-    /*private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             // By using switch we can easily get
@@ -112,7 +113,7 @@ public class BottomNavigBaseActivity extends BaseActivity {
                     .commit();
             return true;
         }
-    };*/
+    };
     private void connectDevice() {
         address = getIntent().getStringExtra("address");
         if (TextUtils.isEmpty(address)) {
@@ -162,15 +163,17 @@ public class BottomNavigBaseActivity extends BaseActivity {
                 break;
             case BleConst.RealTimeStep:
               maps = getData(map);
-
-                selectedFragment = new HomeFragment();
-                Bundle b= new Bundle();
-                b.putSerializable("map", (Serializable) maps);
-                selectedFragment.setArguments(b);
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.nav_host_fragment_activity_bottom_navig_base, selectedFragment)
-                        .commit();
+if(!ishomeloaded) {
+    selectedFragment = new HomeFragment();
+    Bundle b = new Bundle();
+    b.putSerializable("map", (Serializable) maps);
+    selectedFragment.setArguments(b);
+    getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.nav_host_fragment_activity_bottom_navig_base, selectedFragment)
+            .commit();
+    ishomeloaded=true;
+}
                 break;
             case BleConst.DeviceSendDataToAPP:
                 //showDialogInfo(BleConst.DeviceSendDataToAPP);
