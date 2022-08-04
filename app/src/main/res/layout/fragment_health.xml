@@ -16,6 +16,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorwhite"
+                android:layout_margin="10dp"
+                android:layout_centerInParent="true"/>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_bloodpressure"
                 android:layout_width="match_parent"
@@ -83,6 +91,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <TextView
@@ -135,6 +144,7 @@
                                         android:textSize="30sp" />
 
                                     <TextView
+                                        android:id="@+id/bb_minvalue"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="10dp"
@@ -167,6 +177,7 @@
                                         android:textSize="30sp" />
 
                                     <TextView
+                                        android:id="@+id/bb_maxvalue"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="10dp"
@@ -255,6 +266,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <TextView
@@ -297,6 +309,7 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:visibility="gone"
                                     android:orientation="vertical">
 
                                     <TextView
@@ -334,11 +347,12 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Max HRV"
+                                        android:text="HRV"
                                         android:textColor="@color/colorwhite"
                                         android:textSize="21sp" />
 
                                     <TextView
+                                        android:id="@+id/hrvvalue"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="10dp"
@@ -351,7 +365,8 @@
                                         android:layout_height="wrap_content"
                                         android:text="--"
                                         android:textColor="@color/colorwhite"
-                                        android:textSize="18sp" />
+                                        android:textSize="18sp"
+                                        android:visibility="gone"/>
 
                                 </LinearLayout>
                             </LinearLayout>
@@ -427,6 +442,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <TextView
@@ -469,6 +485,7 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:visibility="gone"
                                     android:orientation="vertical">
 
                                     <TextView
@@ -506,11 +523,12 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Max Stress"
+                                        android:text="Stress"
                                         android:textColor="@color/colorwhite"
                                         android:textSize="21sp" />
 
                                     <TextView
+                                        android:id="@+id/stress_value"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:padding="10dp"
@@ -523,7 +541,8 @@
                                         android:layout_height="wrap_content"
                                         android:text="--"
                                         android:textColor="@color/colorwhite"
-                                        android:textSize="18sp" />
+                                        android:textSize="18sp"
+                                        android:visibility="gone"/>
 
                                 </LinearLayout>
                             </LinearLayout>

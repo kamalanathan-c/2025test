@@ -58,53 +58,69 @@ public class BottomNavigBaseActivity extends BaseActivity {
     boolean isStartReal;
     Fragment selectedFragment = null;
     private boolean ishomeloaded = false;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        try {
+            init();
+            connectDevice();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        init();
-        connectDevice();
         binding = ActivityBottomNavigBaseBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         nskAlgoSdk = new NskAlgoSdk();
         nskAlgoSdk.NskAlgoUninit();
-       navView  = findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,R.id.navigation_me)
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_bottom_navig_base);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-       // NavigationUI.setupWithNavController(binding.navView, navController);
+        // NavigationUI.setupWithNavController(binding.navView, navController);
         navView.setOnItemSelectedListener(navListener);
-        sendValue(BleSDK.RealTimeStep(true,true));
+
 
     }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             // By using switch we can easily get
             // the selected fragment
             // by using there id.
-           // Fragment selectedFragment = null;
-           // sendValue(BleSDK.RealTimeStep(true,true));
+            // Fragment selectedFragment = null;
+            // sendValue(BleSDK.RealTimeStep(true,true));
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    showConnectDialog();
                     selectedFragment = new HomeFragment();
                     break;
                 case R.id.navigation_dashboard:
+                    showConnectDialog();
                     selectedFragment = new EcgFragment();
                     break;
                 case R.id.navigation_notifications:
+                    showConnectDialog();
+                    sendValue(BleSDK.StartDeviceMeasurementWithType(3, true));
                     selectedFragment = new HealthFragment();
                     break;
-                case R.id.navigation_me:
+              /*  case R.id.navigation_me:
+                    showConnectDialog();
                     selectedFragment = new MeFragment();
-                    break;
+                    break;*/
             }
             // It will help to replace the
             // one fragment to other.
-            Bundle b= new Bundle();
+            Bundle b = new Bundle();
             b.putSerializable("map", (Serializable) maps);
             selectedFragment.setArguments(b);
             getSupportFragmentManager()
@@ -114,6 +130,7 @@ public class BottomNavigBaseActivity extends BaseActivity {
             return true;
         }
     };
+
     private void connectDevice() {
         address = getIntent().getStringExtra("address");
         if (TextUtils.isEmpty(address)) {
@@ -135,6 +152,7 @@ public class BottomNavigBaseActivity extends BaseActivity {
     private void dissMissDialog() {
         if (progressDialog != null && progressDialog.isShowing()) progressDialog.dismiss();
     }
+
     private void init() {
         subscription = RxBus.getInstance().toObservable(BleData.class).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<BleData>() {
             @Override
@@ -145,53 +163,53 @@ public class BottomNavigBaseActivity extends BaseActivity {
                 } else if (action.equals(BleService.ACTION_GATT_DISCONNECTED)) {
                     dissMissDialog();
                 }
-                sendValue(BleSDK.RealTimeStep(true,true));
+                sendValue(BleSDK.RealTimeStep(true, true));
             }
         });
     }
-
 
 
     @Override
     public void dataCallback(Map<String, Object> map) {
         super.dataCallback(map);
         String dataType = getDataType(map);
-        Log.e("info",map.toString());
+        Log.e("info", map.toString());
         switch (dataType) {
             case BleConst.ReadSerialNumber:
                 showDialogInfo(map.toString());
                 break;
             case BleConst.RealTimeStep:
-              maps = getData(map);
-if(!ishomeloaded) {
-    selectedFragment = new HomeFragment();
-    Bundle b = new Bundle();
-    b.putSerializable("map", (Serializable) maps);
-    selectedFragment.setArguments(b);
-    getSupportFragmentManager()
-            .beginTransaction()
-            .replace(R.id.nav_host_fragment_activity_bottom_navig_base, selectedFragment)
-            .commit();
-    ishomeloaded=true;
-}
+                maps = getData(map);
+                if (!ishomeloaded) {
+                    selectedFragment = new HomeFragment();
+                    Bundle b = new Bundle();
+                    b.putSerializable("map", (Serializable) maps);
+                    selectedFragment.setArguments(b);
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.nav_host_fragment_activity_bottom_navig_base, selectedFragment)
+                            .commit();
+                    ishomeloaded = true;
+                }
+
+                dissMissDialog();
                 break;
-            case BleConst.DeviceSendDataToAPP:
-                //showDialogInfo(BleConst.DeviceSendDataToAPP);
+            case BleConst.MeasurementHrvCallback:
+            case BleConst.MeasurementHeartCallback:
+            case BleConst.MeasurementOxygenCallback:
+                maps = getData(map);
+                selectedFragment = new HealthFragment();
+                Bundle b = new Bundle();
+                b.putSerializable("map", (Serializable) maps);
+                selectedFragment.setArguments(b);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment_activity_bottom_navig_base, selectedFragment)
+                        .commit();
+                sendValue(BleSDK.StartDeviceMeasurementWithType(3, false));
+                dissMissDialog();
                 break;
-            case BleConst.FindMobilePhoneMode:
-                //showDialogInfo(BleConst.FindMobilePhoneMode);
-                break;
-            case BleConst.RejectTelMode:
-                //showDialogInfo(BleConst.RejectTelMode);
-                break;
-            case BleConst.TelMode:
-                //showDialogInfo(BleConst.TelMode);
-                break;
-            case BleConst.BackHomeView:
-                showToast(map.toString());
-                break;
-            case BleConst.Sos:
-                showToast(map.toString());
+            default:
                 break;
         }
     }

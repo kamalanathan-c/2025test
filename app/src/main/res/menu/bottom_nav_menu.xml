@@ -16,9 +16,9 @@
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/bottom_nav_health"
         android:title="@string/title_health" />
-    <item
+   <!-- <item
         android:id="@+id/navigation_me"
         android:icon="@drawable/bottom_nav_me"
-        android:title="Me" />
+        android:title="Me" />-->
 
 </menu>
